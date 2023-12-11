@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>agecalculator</title>
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <h1>Age Calculator</h1>
+            </div>
+            <div class="input-box">
+               <div> <input type="date" id="date"></div>
+                <div><button onclick="age()">Calculate</button></div>
+                <div class="result"><p id="result"></p></div>
+            </div>
+           
+            <script>
+                
+                function age(){
+                    Input=document.getElementById("date").value;
+                    let userInput=document.getElementById("date");
+                    userInput.max=new Date().toISOString().split("T")[0];
+                    let result=document.getElementById("result");
+                    if (Input==''){
+                        result.innerHTML="Please enter the date of birth";
+                        return false;
+                    }
+                    else{
+                    let birthdate=new Date(userInput.value);
+
+                    var diff=Date.now()-birthdate.getTime();
+                    var ageDate=new Date(diff)
+                    var calage=Math.abs(ageDate.getUTCFullYear()-1970)
+                    result.innerHTML=`you have  wonderful year of ${calage} year old`;
+                  
+                }   
+                }
+            </script>
+            
+    </body>
+</html>
+
+<!-- 
+<html>
+<body>
+<input type="date" id="txtDOB" /> 
+<button id="btnCalculate"  onclick="fnCalculateAge();" >Calculate Age</button> 
+<script>
+function fnCalculateAge(){
+
+     var userDateinput = document.getElementById("txtDOB").value;  
+	 console.log(userDateinput);
+	 
+     // convert user input value into date object
+	 var birthDate = new Date(userDateinput);
+	  console.log(" birthDate"+ birthDate);
+	 
+	 // get difference from current date;
+	 var difference=Date.now() - birthDate.getTime(); 
+	 	 
+	 var  ageDate = new Date(difference); 
+     console.log(ageDate+"hai")
+	 var calculatedAge=   Math.abs(ageDate.getUTCFullYear() - 1970);
+	 alert(calculatedAge);
+}
+
+</script>
+</body>
+</html> -->
+                                
